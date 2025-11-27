@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import LoginForm from '../components/LoginForm';
+
+const baseUrl = import.meta.env.BASE_URL;
+const base = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+---
+
+<Layout title="Log In" description="Log in to your SwiftPay account">
+  <Navigation client:load baseUrl={baseUrl} currentPath={Astro.url.pathname} />
+  
+  <main class="main">
+    <div class="auth-container">
+      <div class="auth-content">
+        <div class="auth-header">
+          <h1 class="auth-title">Welcome back</h1>
+          <p class="auth-subtitle">Log in to manage your transfers</p>
+        </div>
+        
+        <LoginForm client:load baseUrl={baseUrl} />
+        
+        <div class="auth-footer">
+          <p>Don't have an account? <a href={`${base}signup/`} class="auth-link">Sign up</a></p>
+        </div>
+      </div>
+      
+      <div class="auth-side">
+        <div class="auth-side-content">
+          <div class="auth-illustration">
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="80" stroke="url(#loginGrad)" stroke-width="3" fill="none" opacity="0.3"/>
+              <circle cx="100" cy="100" r="60" stroke="url(#loginGrad)" stroke-width="2" fill="none" opacity="0.5"/>
+              <circle cx="100" cy="100" r="40" stroke="url(#loginGrad)" stroke-width="2" fill="none"/>
+              <path d="M75 100L90 115L125 85" stroke="url(#loginGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="loginGrad" x1="0" y1="0" x2="200" y2="200">
+                  <stop offset="0%" stop-color="#00d4aa"/>
+                  <stop offset="100%" stop-color="#0984e3"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2 class="auth-side-title">Secure Access</h2>
+          <p class="auth-side-text">Your account is protected with industry-leading security measures.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .main {
+    min-height: 100vh;
+    padding-top: 70px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .auth-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .auth-content {
+    max-width: 420px;
+  }
+  
+  .auth-header {
+    margin-bottom: 2rem;
+  }
+  
+  .auth-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .auth-subtitle {
+    color: var(--text-secondary);
+  }
+  
+  .auth-footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+  
+  .auth-link {
+    color: var(--accent-primary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+  
+  .auth-link:hover {
+    color: var(--accent-hover);
+  }
+  
+  .auth-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .auth-side-content {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .auth-illustration {
+    margin-bottom: 2rem;
+  }
+  
+  .auth-side-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .auth-side-text {
+    color: var(--text-secondary);
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 900px) {
+    .auth-container {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+    }
+    
+    .auth-side {
+      display: none;
+    }
+    
+    .auth-content {
+      max-width: 100%;
+    }
+  }
+</style>
