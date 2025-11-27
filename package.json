@@ -1,0 +1,26 @@
+{
+  "name": "test-fintech",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Fast and cheap cross-border payments fintech app",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": ["fintech", "payments", "cross-border"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "astro": "^5.16.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.9.3"
+  }
+}

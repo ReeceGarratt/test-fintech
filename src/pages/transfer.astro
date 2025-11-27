@@ -1,0 +1,179 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+import TransferForm from '../components/TransferForm';
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="Transfer Money" description="Send money internationally with low fees and fast delivery">
+  <Navigation client:load baseUrl={baseUrl} currentPath={Astro.url.pathname} />
+  
+  <main class="main">
+    <div class="transfer-container">
+      <div class="transfer-header">
+        <h1 class="transfer-title">Send Money Abroad</h1>
+        <p class="transfer-subtitle">Fast, secure transfers to 150+ countries</p>
+      </div>
+      
+      <div class="transfer-content">
+        <div class="transfer-form-wrapper">
+          <TransferForm client:load baseUrl={baseUrl} />
+        </div>
+        
+        <div class="transfer-info">
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="info-text">
+              <h3>Secure & Protected</h3>
+              <p>256-bit encryption and fraud monitoring</p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <div class="info-text">
+              <h3>Fast Delivery</h3>
+              <p>Most transfers arrive in minutes</p>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="info-text">
+              <h3>Best Rates</h3>
+              <p>Real exchange rates, low fees</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .main {
+    min-height: 100vh;
+    padding-top: 70px;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  }
+  
+  .transfer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+  
+  .transfer-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .transfer-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .transfer-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+  
+  .transfer-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+  }
+  
+  .transfer-form-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+  }
+  
+  .transfer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .info-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+  
+  .info-card:hover {
+    border-color: var(--border-active);
+  }
+  
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.15) 0%, rgba(9, 132, 227, 0.1) 100%);
+    border-radius: var(--radius-md);
+    color: var(--accent-primary);
+    flex-shrink: 0;
+  }
+  
+  .info-text h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  
+  .info-text p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+  
+  @media (max-width: 900px) {
+    .transfer-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .transfer-info {
+      order: -1;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    
+    .info-card {
+      flex: 1;
+      min-width: 200px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .transfer-title {
+      font-size: 2rem;
+    }
+    
+    .info-card {
+      min-width: 100%;
+    }
+  }
+</style>

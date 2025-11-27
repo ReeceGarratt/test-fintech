@@ -1,0 +1,472 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation';
+
+const baseUrl = import.meta.env.BASE_URL;
+// Ensure trailing slash for path concatenation
+const base = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+---
+
+<Layout title="Home">
+  <Navigation client:load baseUrl={baseUrl} currentPath={Astro.url.pathname} />
+  
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-gradient"></div>
+        <div class="hero-grid"></div>
+      </div>
+      
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Now serving 150+ countries
+        </div>
+        
+        <h1 class="hero-title">
+          Send Money<br />
+          <span class="gradient-text">Anywhere, Instantly</span>
+        </h1>
+        
+        <p class="hero-description">
+          Fast, secure, and affordable international payments. 
+          Save up to 80% on fees compared to traditional banks.
+        </p>
+        
+        <div class="hero-actions">
+          <a href={`${base}signup/`} class="btn btn-primary btn-lg">
+            Get Started Free
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href={`${base}transfer/`} class="btn btn-secondary btn-lg">
+            Try a Transfer
+          </a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value">$2B+</span>
+            <span class="hero-stat-label">Transferred</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">500K+</span>
+            <span class="hero-stat-label">Happy Users</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">30sec</span>
+            <span class="hero-stat-label">Avg. Transfer Time</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Choose SwiftPay?</h2>
+          <p class="section-description">
+            Built for the modern world. Send money globally with confidence.
+          </p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Lightning Fast</h3>
+            <p class="feature-description">
+              Most transfers complete in under 30 seconds. No more waiting days for your money to arrive.
+            </p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Lowest Fees</h3>
+            <p class="feature-description">
+              Save up to 80% compared to banks. Transparent pricing with no hidden charges.
+            </p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">Bank-Level Security</h3>
+            <p class="feature-description">
+              256-bit encryption and biometric authentication keep your money safe.
+            </p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">150+ Countries</h3>
+            <p class="feature-description">
+              Send money to friends and family anywhere in the world with real exchange rates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2 class="cta-title">Ready to send your first transfer?</h2>
+            <p class="cta-description">
+              Join 500,000+ users who trust SwiftPay for their international payments.
+            </p>
+            <a href={`${base}signup/`} class="btn btn-primary btn-lg">
+              Create Free Account
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <a href={base} class="footer-logo">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="14" stroke="url(#footerGradient)" stroke-width="2.5" fill="none" />
+                <path d="M10 16L14 20L22 12" stroke="url(#footerGradient)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <defs>
+                  <linearGradient id="footerGradient" x1="0" y1="0" x2="32" y2="32">
+                    <stop offset="0%" stop-color="#00d4aa" />
+                    <stop offset="100%" stop-color="#0984e3" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>SwiftPay</span>
+            </a>
+            <p class="footer-tagline">Fast, secure cross-border payments</p>
+          </div>
+          
+          <div class="footer-links">
+            <a href={base}>Home</a>
+            <a href={`${base}transfer/`}>Transfer</a>
+            <a href={`${base}login/`}>Log In</a>
+            <a href={`${base}signup/`}>Sign Up</a>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; 2025 SwiftPay. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  .main {
+    padding-top: 70px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  
+  .hero-gradient {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.15) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+  
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 212, 170, 0.1);
+    border: 1px solid rgba(0, 212, 170, 0.2);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+  
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .hero-stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  
+  /* Features Section */
+  .features {
+    padding: 6rem 0;
+    background: var(--bg-secondary);
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .section-description {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all var(--transition-base);
+  }
+  
+  .feature-card:hover {
+    border-color: var(--border-active);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.15) 0%, rgba(9, 132, 227, 0.1) 100%);
+    border-radius: var(--radius-md);
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  .feature-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  /* CTA Section */
+  .cta {
+    padding: 6rem 0;
+  }
+  
+  .cta-card {
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(9, 132, 227, 0.05) 100%);
+    border: 1px solid rgba(0, 212, 170, 0.2);
+    border-radius: var(--radius-xl);
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-description {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+  }
+  
+  /* Footer */
+  .footer {
+    background: var(--bg-secondary);
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .footer-tagline {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-links a:hover {
+    color: var(--accent-primary);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-stats {
+      gap: 2rem;
+    }
+    
+    .hero-stat-value {
+      font-size: 1.5rem;
+    }
+    
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .footer-links {
+      justify-content: center;
+    }
+  }
+</style>
